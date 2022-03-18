@@ -1,5 +1,7 @@
 package FilEksempler;
 
+import java.util.Arrays;
+
 class InsertionSort {
     /** The method for sorting the numbers */
     public static void insertionSort(int[] list) {
@@ -16,6 +18,27 @@ class InsertionSort {
             list[k + 1] = currentElement;
         }
     }
+
+    public static void insertionSort(String[] list) {
+
+        for (int i = 0; i < list.length; i++) {
+
+            String currentElement = list[i];
+            int k;
+            for (k = i - 1; k >= 0 && list[k].compareToIgnoreCase(currentElement) > 0; k--) {
+                list[k + 1] = list[k];
+            }
+            list[k + 1] = currentElement;
+
+            }
+        System.out.println(Arrays.toString(list));
+
+
+        }
+
+
+
+
 
     /** A test method */
     public static void main(String[] args) {
