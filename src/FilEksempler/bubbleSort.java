@@ -1,5 +1,7 @@
 package FilEksempler;
 
+import java.util.Arrays;
+
 class BubbleSort {
     /** Bubble sort method */
     public static void bubbleSort(int[] list) {
@@ -20,6 +22,26 @@ class BubbleSort {
             }
         }
     }
+
+    public static void bubbleSort(String[] list ) {
+        boolean needNextPass = true;
+
+        for (int k = 1; k < list.length && needNextPass; k++) {
+            needNextPass = false;
+            for (int i = 0; i < list.length - k ; i++) {
+                if (list[i].compareToIgnoreCase(list[i + 1]) > 0  ) {
+                    String temp = list[i];
+                    list[i] = list[i + 1];
+                    list[i + 1 ] = temp;
+
+                    needNextPass = true;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(list));
+    }
+
+
 
     /** A test method */
     public static void main(String[] args) {

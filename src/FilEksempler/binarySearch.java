@@ -19,6 +19,10 @@ class BinarySearch {
         return -low - 1; // Now high < low
     }
 
+
+
+
+
     public static void main(String[] args) {
         int[] list = {-3, 1, 2, 4, 9, 23};
         System.out.println(binarySearch(list, 2));

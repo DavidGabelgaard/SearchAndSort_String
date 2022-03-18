@@ -1,5 +1,7 @@
 package FilEksempler;
 
+import java.util.Arrays;
+
 class MergeSort {
     /** The method for sorting the numbers */
     public static void mergeSort(int[] list) {
@@ -40,6 +42,49 @@ class MergeSort {
         while (current2 < list2.length)
             temp[current3++] = list2[current2++];
     }
+
+    public static void mergeSort(String[] list ) {
+        if (list.length > 1) {
+            String[] firstHalf = new String[list.length / 2];
+            System.arraycopy(list , 0 , firstHalf, 0 , list.length / 2 );
+            mergeSort(firstHalf);
+
+            int secondHalfLength = list.length - (list.length / 2);
+            String[] secondHalf = new String[secondHalfLength];
+            System.arraycopy(list, list.length / 2 , secondHalf , 0 , secondHalfLength);
+            mergeSort(secondHalf);
+
+            merge(firstHalf , secondHalf , list);
+        }
+        System.out.println(Arrays.toString(list));
+    }
+
+    public static void merge(String[] list1 , String[] list2 , String[] temp ) {
+        int curr1 = 0;
+        int curr2 = 0;
+        int curr3 = 0;
+
+        while (curr1 < list1.length && curr2 < list2.length) {
+            if (list1[curr1].compareToIgnoreCase(list2[curr2] ) < 0) {
+                temp[curr3++] = list1[curr1++];
+            } else {
+                temp[curr3++] = list2[curr2++];
+            }
+
+
+            while (curr1 < list1.length)
+                temp[curr3++] = list1[curr1++];
+
+            while (curr2 < list2.length)
+                temp[curr3++] = list2[curr2++];
+
+        }
+
+
+
+    }
+
+
 
     /** A test method */
     public static void main(String[] args) {
